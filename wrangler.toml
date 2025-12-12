@@ -1,8 +1,5 @@
 name = "sofxckingcool"
 compatibility_date = "2025-03-29"
-main = "worker.js"
-compatibility_flags = ["nodejs_compat"]
 
-[site]
-bucket = "./"
-exclude = ["previews"]
+[assets]
+directory = "./dist"
