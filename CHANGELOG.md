@@ -1,5 +1,14 @@
 # Changelog
 
+## [2.0.2] - 2025-12-13
+
+### Added
+- `public/` 文件夹用于静态资源
+- `robots.txt` 和 `llms.txt` 移至 public 目录
+
+### Fixed
+- `.gitignore` 添加 `dist/` 忽略构建产物
+
 ## [2.0.1] - 2025-12-12
 
 ### Added

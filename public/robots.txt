@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Block common non-content paths (none currently, kept for future)
+# Disallow: /api/
+# Disallow: /admin/
+
+Sitemap: https://lomopic.com/sitemap.xml
