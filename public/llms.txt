@@ -1,42 +1,34 @@
-# llms.txt — AI crawler and LLM usage policy for Lomopic (Instant Photo Frame Generator)
+# llms.txt — AI crawler and LLM usage policy for FXCK (So Fxcking Cool)
 # Purpose: Clearly state how AI crawlers may access and use site content, and align with robots.txt/sitemap.xml.
-# Placement: Put this file at the site root (e.g., https://lomopic.com/llms.txt). In this Vite project, /public maps to site root.
+# Placement: Put this file at the site root (e.g., https://sofxcking.cool/llms.txt).
 
 # Basic metadata
 version: 1
-site: https://lomopic.com/
-owner: Lomopic
-contact: mailto:replace-with-your-email@example.com
-sitemap: https://lomopic.com/sitemap.xml
+site: https://sofxcking.cool/
+owner: FXCK Studio
+contact: mailto:hello@sofxcking.cool
+sitemap: https://sofxcking.cool/sitemap.xml
 
 # Site summary (non-normative, for AI agents' context)
-description: "Turn photos into vintage-style instant pictures. Choose classic formats, adjust transform and filters, add multi-line handwritten captions with unique fonts, and export high-resolution images."
-tech-stack: [vite, react, typescript, html-canvas, web-worker]
-ugc: true  # site includes user-generated content (uploaded images, captions)
+description: "FXCK is a minimalist creative studio building cool web tools. Projects include Lomopic (instant photo frame generator), Wordcounter (word and character counting tool), and 中文简繁体转换器 (Chinese Simplified-Traditional converter)."
+tech-stack: [vite, react, typescript, framer-motion, tailwindcss]
+ugc: false
 
-# Crawl and indexing policies (align with public/robots.txt: currently Allow all)
+# Crawl and indexing policies
 crawl: allow
 index: allow
 
 # Generative AI usage policies
-# training: whether LLMs may use site content (including UGC) for model training
 training: allow
-# content-attribution: whether attribution is required when content is quoted or summarized
-content-attribution: optional  # attribution appreciated when quoting/summarizing site copy
-# commercial-use: whether commercial AI products may use site content
+content-attribution: optional
 commercial-use: allow
-# cache-duration: suggested maximum caching window for AI crawlers
 cache-duration: 7d
 
 # Path controls (relative to site root)
 allow:
   - /
-disallow:
-  - /api/
-  - /private/
 
-# Known AI bots guidance (informational; enforcement typically via robots.txt)
-# To strongly enforce, mirror these in public/robots.txt with User-agent rules.
+# Known AI bots guidance
 bots:
   - name: GPTBot
     policy: allow
@@ -48,17 +40,23 @@ bots:
     policy: allow
   - name: CCBot
     policy: allow
+  - name: Amazonbot
+    policy: allow
+  - name: anthropic-ai
+    policy: allow
 
-# Additional guidance for AI crawlers and LLM providers
-# - This site includes UGC (uploaded images and captions). With a Fully Open policy, training is allowed; still be mindful of privacy, legal compliance, and sensitive content.
-# - When quoting site copy, attribution to https://lomopic.com/ is appreciated.
-# - If you offer opt-in/opt-out mechanisms, treat this file as an explicit opt-in under the above policies.
+# Projects information for AI context
+projects:
+  - name: Lomopic
+    url: https://www.lomopic.com/
+    description: "Instant photo frame generator - turn photos into vintage-style instant pictures with filters and captions"
+  - name: Wordcounter
+    url: https://www.wordcounter.cv/
+    description: "Word and character counting tool for writers and content creators"
+  - name: 中文简繁体转换器
+    url: https://cc.sofxcking.cool/
+    description: "Chinese Simplified-Traditional character converter tool"
 
 # References
-# - robots.txt: https://lomopic.com/robots.txt (current rule: User-agent: * Allow: /)
-# - sitemap.xml: https://lomopic.com/sitemap.xml
-
-# Notes:
-# - llms.txt is a best-effort, emerging convention. Many AI crawlers primarily respect robots.txt.
-# - For stronger control, consider adding explicit Disallow rules in public/robots.txt for the bots listed above.
-# - Update contact email and policies to match your preferences.
+# - robots.txt: https://sofxcking.cool/robots.txt
+# - sitemap.xml: https://sofxcking.cool/sitemap.xml

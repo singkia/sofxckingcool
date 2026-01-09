@@ -1,8 +1,30 @@
 User-agent: *
 Allow: /
 
-# Block common non-content paths (none currently, kept for future)
-# Disallow: /api/
-# Disallow: /admin/
+# Sitemap
+Sitemap: https://sofxcking.cool/sitemap.xml
 
-Sitemap: https://lomopic.com/sitemap.xml
+# AI Crawlers - Allow for AEO optimization
+User-agent: GPTBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+# LLMs.txt reference
+# See https://sofxcking.cool/llms.txt for AI usage policy

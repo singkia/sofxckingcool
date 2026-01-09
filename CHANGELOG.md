@@ -1,6 +1,20 @@
 # Changelog
 
-## [2.0.2] - 2025-12-13
+## [0.0.3] - 2025-01-09
+
+### Added
+- 新项目链接：中文简繁体转换器 (https://cc.sofxcking.cool/)
+- `sitemap.xml` 站点地图
+- 结构化数据 (JSON-LD): Organization, WebSite, ItemList
+- 完整的 Twitter Card 标签
+- AI 爬虫支持 (GPTBot, Claude-Web, PerplexityBot 等)
+
+### Changed
+- 优化 SEO meta 标签，更新 title 和 description
+- 更新 `robots.txt`，修正 sitemap 指向
+- 更新 `llms.txt` 为 FXCK 站点信息
+
+## [0.0.2] - 2025-12-13
 
 ### Added
 - `public/` 文件夹用于静态资源
@@ -9,12 +23,12 @@
 ### Fixed
 - `.gitignore` 添加 `dist/` 忽略构建产物
 
-## [2.0.1] - 2025-12-12
+## [0.0.1] - 2025-12-12
 
 ### Added
 - Umami Analytics 统计脚本
 
-## [2.0.0] - 2025-12-12
+## [0.0.0] - 2025-12-12
 
 ### 🚀 Major Redesign - Antiwork Style
 

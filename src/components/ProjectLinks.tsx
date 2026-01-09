@@ -12,6 +12,7 @@ interface ProjectLink {
 const projects: ProjectLink[] = [
   { name: 'Lomopic', url: 'https://www.lomopic.com/' },
   { name: 'Wordcounter', url: 'https://www.wordcounter.cv/' },
+  { name: '中文简繁体转换器', url: 'https://cc.sofxcking.cool/' },
 ]
 
 interface ProjectLinksProps {
