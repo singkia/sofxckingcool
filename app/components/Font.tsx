@@ -444,10 +444,10 @@ export function Font({
       ),
     },
     " ": {
-      width: 90,
+      width: 54,
       fullHeightLeft: false,
       fullHeightRight: false,
-      render: () => <svg width={`${(88 * size) / 176}`} height={size}></svg>,
+      render: () => <svg width={`${(52 * size) / 176}`} height={size}></svg>,
     },
     ".": {
       width: 70,
@@ -474,20 +474,33 @@ export function Font({
         className="text-row"
         style={{
           display: "flex",
-          flexWrap: "wrap",
+          flexWrap: "nowrap",
           justifyContent: "flex-start",
+          alignItems: "center",
         }}
       >
         {Array.from(text.toUpperCase()).map((char, charIndex) => {
           const charDef = charDefinitions[char] || charDefinitions[" "];
-          let marginLeft = (10 * size) / 176;
+          const nextChar = text.toUpperCase()[charIndex + 1];
+          let marginLeft = (4 * size) / 176;
+          let marginRight = (4 * size) / 176;
+          let translateX = 0;
 
           if (
             prevCharDef &&
             prevCharDef.fullHeightRight &&
             charDef.fullHeightLeft
           ) {
-            marginLeft = (20 * size) / 176;
+            marginLeft = (10 * size) / 176;
+          }
+
+          if (text.toUpperCase()[charIndex - 1] === "X" && char === "C") {
+            marginLeft = (-12 * size) / 176;
+            translateX = (-10 * size) / 176;
+          }
+
+          if (char === "X" && nextChar === "C") {
+            marginRight = (-14 * size) / 176;
           }
 
           const charStyles: React.CSSProperties = {
@@ -496,8 +509,9 @@ export function Font({
             position: "relative",
             margin: "0",
             padding: "0",
-            marginRight: `${(10 * size) / 176}px`,
+            marginRight: `${marginRight}px`,
             marginLeft: charIndex > 0 ? `${marginLeft}px` : "",
+            transform: translateX ? `translateX(${translateX}px)` : undefined,
           };
 
           const isClickableO = char === "O" && onOClick;
