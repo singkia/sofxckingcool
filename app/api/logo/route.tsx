@@ -11,23 +11,21 @@ export async function GET() {
     .padStart(6, "0")}`;
 
   return new ImageResponse(
-    (
-      <div
-        style={{
-          fontSize: 40,
-          color: randomLogoColor,
-          backgroundColor: randomBackgroundColor,
-          width: "100%",
-          height: "100%",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
-        <Logo size={256} color={randomLogoColor} background="transparent" />
-      </div>
-    ),
+    <div
+      style={{
+        fontSize: 40,
+        color: randomLogoColor,
+        backgroundColor: randomBackgroundColor,
+        width: "100%",
+        height: "100%",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+      }}
+    >
+      <Logo size={256} color={randomLogoColor} background="transparent" />
+    </div>,
     {
       width: 512,
       height: 512,

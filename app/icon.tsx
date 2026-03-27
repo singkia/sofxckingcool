@@ -10,21 +10,19 @@ export const contentType = "image/png";
 // Image generation
 export default function Icon() {
   return new ImageResponse(
-    (
-      <div
-        style={{
-          width: "100%",
-          height: "100%",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          fontSize: 26,
-          background: "transparent",
-        }}
-      >
-        🖕
-      </div>
-    ),
+    <div
+      style={{
+        width: "100%",
+        height: "100%",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        fontSize: 26,
+        background: "transparent",
+      }}
+    >
+      🖕
+    </div>,
     {
       ...size,
     }

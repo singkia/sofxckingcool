@@ -248,7 +248,7 @@ function HomeContent() {
                   >
                     <CardHeader className="pb-4">
                       <div className="flex items-start justify-between gap-4">
-                        <CardTitle className="max-w-3xl text-base font-bold leading-tight sm:text-lg lg:text-xl">
+                        <CardTitle className="max-w-3xl text-base leading-tight font-bold sm:text-lg lg:text-xl">
                           <a
                             href={site.url}
                             target="_blank"
