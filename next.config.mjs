@@ -5,6 +5,7 @@ const projectRoot = path.dirname(fileURLToPath(import.meta.url));
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: "standalone",
   turbopack: {
     root: projectRoot,
   },
@@ -20,3 +21,5 @@ const nextConfig = {
 };
 
 export default nextConfig;
+
+import("@opennextjs/cloudflare").then((m) => m.initOpenNextCloudflareForDev());
