@@ -3,7 +3,16 @@ import prettierRecommended from "eslint-plugin-prettier/recommended";
 
 const config = [
   {
-    ignores: [".next/**", "node_modules/**", "out/**", "build/**"],
+    ignores: [
+      ".codex/**",
+      ".next/**",
+      ".open-next/**",
+      ".playwright-mcp/**",
+      ".wrangler/**",
+      "build/**",
+      "node_modules/**",
+      "out/**",
+    ],
   },
   ...nextVitals,
   {

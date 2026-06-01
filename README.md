@@ -1,9 +1,20 @@
-This repo powers antiwork.com
+# sofxcking.cool
 
-## Running locally
+Minimal multilingual showcase for FXCK Studio projects.
+
+## Running Locally
 
 ```bash
-npm run dev
+pnpm dev
 ```
 
-Note: `vercel env pull` if you need API keys to test a specific feature.
+## Checks
+
+```bash
+pnpm test
+pnpm lint
+pnpm exec tsc --noEmit
+pnpm exec next build
+```
+
+Use `vercel env pull` only when testing features that require deployed secrets.

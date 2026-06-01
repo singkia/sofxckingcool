@@ -1,3 +1,10 @@
+/**
+ * [INPUT]: 依赖首页站点清单与浏览器语言代码
+ * [OUTPUT]: 对外提供 Locale 类型、SITES 数据、UI_STRINGS 文案与 locale 工具函数
+ * [POS]: lib 的首页国际化源，供 app/page.tsx 与本地化测试消费
+ * [PROTOCOL]: 变更时更新此头部，然后检查 CLAUDE.md
+ */
+
 export type Locale = "zh-Hant" | "zh-Hans" | "en" | "ja" | "fr" | "ko";
 
 export interface LocalizedSiteCopy {
@@ -176,6 +183,7 @@ export const UI_STRINGS: Record<
     emptyDescription: string;
     showcaseCount: (count: number) => string;
     externalLinkLabel: string;
+    shuffleLabel: string;
   }
 > = {
   "zh-Hant": {
@@ -183,18 +191,21 @@ export const UI_STRINGS: Record<
     emptyDescription: "目前沒有可用的連結網站。",
     showcaseCount: (count) => `目前展示 ${count} 個網站`,
     externalLinkLabel: "打開網站",
+    shuffleLabel: "隨機切換主題",
   },
   "zh-Hans": {
     emptyTitle: "没有可显示的网站",
     emptyDescription: "当前没有可用的关联网站。",
     showcaseCount: (count) => `当前展示 ${count} 个网站`,
     externalLinkLabel: "打开网站",
+    shuffleLabel: "随机切换主题",
   },
   en: {
     emptyTitle: "No websites found",
     emptyDescription: "No linked websites are available right now.",
     showcaseCount: (count) => `${count} websites in the current showcase`,
     externalLinkLabel: "Open website",
+    shuffleLabel: "Shuffle theme",
   },
   ja: {
     emptyTitle: "表示できるサイトがありません",
@@ -202,18 +213,21 @@ export const UI_STRINGS: Record<
     showcaseCount: (count) =>
       `現在のショーケースには ${count} 件のサイトがあります`,
     externalLinkLabel: "サイトを開く",
+    shuffleLabel: "テーマをランダムに切り替え",
   },
   fr: {
     emptyTitle: "Aucun site trouvé",
     emptyDescription: "Aucun site lié n'est disponible pour le moment.",
     showcaseCount: (count) => `${count} sites dans la vitrine actuelle`,
     externalLinkLabel: "Ouvrir le site",
+    shuffleLabel: "Changer le thème aléatoirement",
   },
   ko: {
     emptyTitle: "표시할 웹사이트가 없습니다",
     emptyDescription: "지금 사용할 수 있는 연결된 웹사이트가 없습니다.",
     showcaseCount: (count) => `현재 쇼케이스에 웹사이트 ${count}개가 있습니다`,
     externalLinkLabel: "웹사이트 열기",
+    shuffleLabel: "테마 무작위 변경",
   },
 };
 

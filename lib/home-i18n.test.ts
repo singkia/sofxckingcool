@@ -1,3 +1,10 @@
+/**
+ * [INPUT]: 依赖 node:test 与 lib/home-i18n 的 locale 数据和选择函数
+ * [OUTPUT]: 对外提供首页国际化行为测试
+ * [POS]: lib 的本地化回归测试，约束语言检测、随机 locale 与站点文案完整性
+ * [PROTOCOL]: 变更时更新此头部，然后检查 CLAUDE.md
+ */
+
 import test from "node:test";
 import assert from "node:assert/strict";
 
@@ -7,7 +14,7 @@ import {
   SITE_ORDER,
   SITES,
   SUPPORTED_LOCALES,
-} from "@/lib/home-i18n";
+} from "./home-i18n.ts";
 
 test("detectLocaleFromLanguages maps Traditional Chinese variants to zh-Hant", () => {
   assert.equal(detectLocaleFromLanguages(["zh-TW", "en-US"]), "zh-Hant");

@@ -1,3 +1,10 @@
+/**
+ * [INPUT]: 依赖 React.forwardRef 与 lib/utils 的 cn 类名合并
+ * [OUTPUT]: 对外提供 Card、CardHeader、CardFooter、CardTitle、CardDescription、CardContent
+ * [POS]: components/ui 的基础卡片外壳，被首页站点展示卡片复用
+ * [PROTOCOL]: 变更时更新此头部，然后检查 CLAUDE.md
+ */
+
 import * as React from "react";
 
 import { cn } from "@/lib/utils";
@@ -9,7 +16,7 @@ const Card = React.forwardRef<
   <div
     ref={ref}
     className={cn(
-      "bg-card text-card-foreground rounded-xl border shadow",
+      "bg-card text-card-foreground rounded-lg border shadow",
       className
     )}
     {...props}

@@ -1,3 +1,10 @@
+/**
+ * [INPUT]: 依赖 React 渲染 SVG 字形，接收 text/color/size 与可选 O 字母交互参数
+ * [OUTPUT]: 对外提供 Font 几何字形组件
+ * [POS]: app/components 的品牌字形渲染器，被首页、404 与字体工具页消费
+ * [PROTOCOL]: 变更时更新此头部，然后检查 CLAUDE.md
+ */
+
 import React from "react";
 
 interface FontProps {

@@ -1,5 +1,12 @@
 "use client";
 
+/**
+ * [INPUT]: 依赖 lib/home-i18n 的站点文案，依赖 lib/home-layout 的品牌尺寸规则，依赖 utils/colors 的可访问配色
+ * [OUTPUT]: 对外提供 Home 首页组件
+ * [POS]: app 的首页入口，负责品牌展示、主题随机化与站点卡片导航
+ * [PROTOCOL]: 变更时更新此头部，然后检查 CLAUDE.md
+ */
+
 import { ExternalLink, Globe, Shuffle } from "lucide-react";
 import {
   Noto_Sans_JP,
@@ -16,10 +23,11 @@ import {
   useMemo,
 } from "react";
 import { useSearchParams } from "next/navigation";
-import { generateRandomColors } from "@/utils/colors";
+import { generateRandomColors, isAccessibleColorPair } from "@/utils/colors";
 import { Font } from "@/app/components/Font";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
+import { getHomeLogoSize } from "@/lib/home-layout";
 import {
   DEFAULT_LOCALE,
   detectLocaleFromLanguages,
@@ -68,10 +76,14 @@ function getDisplayUrl(url: string) {
   return url.replace(/^https?:\/\//, "").replace(/\/$/, "");
 }
 
+function getUrlColor(value: string | null) {
+  return value && /^[0-9a-f]{6}$/i.test(value) ? `#${value}` : null;
+}
+
 function HomeContent() {
   const [backgroundColor, setBackgroundColor] = useState("");
   const [textColor, setTextColor] = useState("");
-  const [logoSize, setLogoSize] = useState(100);
+  const [logoSize, setLogoSize] = useState(() => getHomeLogoSize(390));
   const [colorsSetByUrl, setColorsSetByUrl] = useState(false);
   const [locale, setLocale] = useState<Locale>(DEFAULT_LOCALE);
   const [localeHydrated, setLocaleHydrated] = useState(false);
@@ -99,12 +111,12 @@ function HomeContent() {
   }, []);
 
   useEffect(() => {
-    const bgColor = searchParams.get("bg");
-    const txtColor = searchParams.get("txt");
+    const bgColor = getUrlColor(searchParams.get("bg"));
+    const txtColor = getUrlColor(searchParams.get("txt"));
 
-    if (bgColor && txtColor) {
-      setBackgroundColor(`#${bgColor}`);
-      setTextColor(`#${txtColor}`);
+    if (bgColor && txtColor && isAccessibleColorPair(bgColor, txtColor)) {
+      setBackgroundColor(bgColor);
+      setTextColor(txtColor);
       setColorsSetByUrl(true);
     } else {
       setInitialColorsForPage();
@@ -151,19 +163,7 @@ function HomeContent() {
 
   useEffect(() => {
     const updateLogoSize = () => {
-      if (window.innerWidth >= 1920) {
-        setLogoSize(200);
-      } else if (window.innerWidth >= 1280) {
-        setLogoSize(100);
-      } else if (window.innerWidth >= 1024) {
-        setLogoSize(80);
-      } else if (window.innerWidth >= 590) {
-        setLogoSize(60);
-      } else if (window.innerWidth >= 470) {
-        setLogoSize(48);
-      } else {
-        setLogoSize(36);
-      }
+      setLogoSize(getHomeLogoSize(window.innerWidth));
     };
 
     updateLogoSize();
@@ -202,15 +202,17 @@ function HomeContent() {
       }}
     >
       <div className="mx-auto px-4 py-8 sm:py-12 md:px-6 lg:px-8 lg:py-16">
-        <header className="mb-8 flex flex-col items-start justify-between sm:flex-row sm:items-center xl:mb-16">
+        <header className="mb-8 flex flex-col items-start justify-between gap-3 sm:flex-row sm:items-start xl:mb-16">
           <div
-            className="mb-4 flex items-center md:mb-0"
+            className="mb-1 flex max-w-full min-w-0 items-center sm:mb-0"
             style={{ marginLeft: "-10px" }}
           >
             <Font text="SO FXCKING COOL" color={textColor} size={logoSize} />
           </div>
-          <div className="relative hidden sm:block">
+          <div className="relative self-end sm:self-auto">
             <button
+              aria-label={uiStrings.shuffleLabel}
+              title={uiStrings.shuffleLabel}
               onClick={shuffleThemeAndLocale}
               className="rounded p-2 xl:p-4"
               style={{ backgroundColor: textColor, color: backgroundColor }}

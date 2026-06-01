@@ -8,6 +8,7 @@
 
 # testing
 /coverage
+.playwright-mcp
 
 # next.js
 /.next/
@@ -33,6 +34,7 @@ yarn-error.log*
 
 # vercel
 .vercel
+.codex
 
 # typescript
 *.tsbuildinfo
