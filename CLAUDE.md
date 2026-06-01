@@ -24,6 +24,7 @@ open-next.config.ts - OpenNext Cloudflare 构建配置
 ## 架构决策
 
 首页视觉规则进入 lib/home-layout.ts，避免组件里继续堆断点分支。
+首页左边线由页面 padding 统一控制，logo 不允许使用负 margin 特殊处理。
 随机配色由 utils/colors.ts 统一判定，常规文字与 70% 弱化文字共享同一个 AA 下限。
 模块变更必须同步 L2 CLAUDE.md；业务文件变更必须同步 L3 头部契约。
 
@@ -34,4 +35,4 @@ open-next.config.ts - OpenNext Cloudflare 构建配置
 
 ## 变更日志
 
-2026-06-01: 修复首页 header 横向溢出、移动端隐藏随机按钮、弱化文字对比度与 lint/test 入口。
+2026-06-01: 修复首页 header 横向溢出、logo 左边线、移动端隐藏随机按钮、弱化文字对比度与 lint/test 入口。

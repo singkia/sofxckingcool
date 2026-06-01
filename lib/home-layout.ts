@@ -6,6 +6,7 @@
  */
 
 const LOGO_WIDTH_PER_SIZE = 15.9;
+const LOGO_INLINE_OFFSET = 0;
 const MIN_LOGO_SIZE = 20;
 const SHUFFLE_BUTTON_MIN_WIDTH = 640;
 
@@ -61,6 +62,10 @@ export function getHomeHeaderReservedWidth(viewportWidth: number) {
 
 export function getHomeLogoWidth(size: number) {
   return Math.ceil(size * LOGO_WIDTH_PER_SIZE);
+}
+
+export function getHomeLogoInlineOffset() {
+  return LOGO_INLINE_OFFSET;
 }
 
 export function getHomeLogoSize(viewportWidth: number) {

@@ -9,6 +9,7 @@ import test from "node:test";
 import assert from "node:assert/strict";
 
 import {
+  getHomeLogoInlineOffset,
   getHomeHeaderReservedWidth,
   getHomeLogoSize,
   getHomeLogoWidth,
@@ -55,6 +56,10 @@ test("home shuffle button stays hidden on mobile widths", () => {
   assert.equal(shouldShowHomeShuffleButton(390), false);
   assert.equal(shouldShowHomeShuffleButton(639), false);
   assert.equal(shouldShowHomeShuffleButton(640), true);
+});
+
+test("home logo shares the page content left edge", () => {
+  assert.equal(getHomeLogoInlineOffset(), 0);
 });
 
 test("random colors keep muted text accessible", () => {

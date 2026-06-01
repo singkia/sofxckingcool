@@ -27,7 +27,7 @@ import { generateRandomColors, isAccessibleColorPair } from "@/utils/colors";
 import { Font } from "@/app/components/Font";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
-import { getHomeLogoSize } from "@/lib/home-layout";
+import { getHomeLogoInlineOffset, getHomeLogoSize } from "@/lib/home-layout";
 import {
   DEFAULT_LOCALE,
   detectLocaleFromLanguages,
@@ -205,7 +205,7 @@ function HomeContent() {
         <header className="mb-8 flex flex-col items-start justify-between gap-3 sm:flex-row sm:items-start xl:mb-16">
           <div
             className="mb-1 flex max-w-full min-w-0 items-center sm:mb-0"
-            style={{ marginLeft: "-10px" }}
+            style={{ marginLeft: getHomeLogoInlineOffset() }}
           >
             <Font text="SO FXCKING COOL" color={textColor} size={logoSize} />
           </div>
