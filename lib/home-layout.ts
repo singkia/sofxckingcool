@@ -7,6 +7,7 @@
 
 const LOGO_WIDTH_PER_SIZE = 15.9;
 const MIN_LOGO_SIZE = 20;
+const SHUFFLE_BUTTON_MIN_WIDTH = 640;
 
 function getPageInlinePadding(viewportWidth: number) {
   if (viewportWidth >= 1024) {
@@ -21,7 +22,7 @@ function getPageInlinePadding(viewportWidth: number) {
 }
 
 function getHeaderActionReserve(viewportWidth: number) {
-  if (viewportWidth < 640) {
+  if (!shouldShowHomeShuffleButton(viewportWidth)) {
     return 0;
   }
 
@@ -46,6 +47,10 @@ function getMaxLogoSize(viewportWidth: number) {
   }
 
   return 36;
+}
+
+export function shouldShowHomeShuffleButton(viewportWidth: number) {
+  return viewportWidth >= SHUFFLE_BUTTON_MIN_WIDTH;
 }
 
 export function getHomeHeaderReservedWidth(viewportWidth: number) {

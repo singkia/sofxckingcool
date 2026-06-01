@@ -34,4 +34,4 @@ open-next.config.ts - OpenNext Cloudflare 构建配置
 
 ## 变更日志
 
-2026-06-01: 修复首页 header 横向溢出、移动端随机按钮不可见、弱化文字对比度与 lint/test 入口。
+2026-06-01: 修复首页 header 横向溢出、移动端隐藏随机按钮、弱化文字对比度与 lint/test 入口。

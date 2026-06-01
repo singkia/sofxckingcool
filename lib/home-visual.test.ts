@@ -12,6 +12,7 @@ import {
   getHomeHeaderReservedWidth,
   getHomeLogoSize,
   getHomeLogoWidth,
+  shouldShowHomeShuffleButton,
 } from "./home-layout.ts";
 import {
   generateRandomColors,
@@ -48,6 +49,12 @@ test("home logo fits inside supported viewport widths", () => {
       `logo uses ${usedWidth}px in ${viewportWidth}px viewport`
     );
   }
+});
+
+test("home shuffle button stays hidden on mobile widths", () => {
+  assert.equal(shouldShowHomeShuffleButton(390), false);
+  assert.equal(shouldShowHomeShuffleButton(639), false);
+  assert.equal(shouldShowHomeShuffleButton(640), true);
 });
 
 test("random colors keep muted text accessible", () => {

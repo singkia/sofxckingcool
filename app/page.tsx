@@ -209,7 +209,7 @@ function HomeContent() {
           >
             <Font text="SO FXCKING COOL" color={textColor} size={logoSize} />
           </div>
-          <div className="relative self-end sm:self-auto">
+          <div className="relative hidden sm:block sm:self-auto">
             <button
               aria-label={uiStrings.shuffleLabel}
               title={uiStrings.shuffleLabel}
