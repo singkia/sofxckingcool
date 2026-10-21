@@ -1,6 +1,6 @@
 # components/ui/
 
-> L2 | 父级: /Users/luo/Desktop/ClaudeCode/web/sofxckingcool/components/CLAUDE.md
+> L2 | 父级: ../CLAUDE.md
 
 成员清单
 card.tsx: Card 组件族，rounded-lg 边框容器与 header/content/footer 分区。

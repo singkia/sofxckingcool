@@ -25,9 +25,7 @@ function getRelativeLuminance(color: string) {
   const [rr, gg, bb] = [r, g, b].map((channel) => {
     const value = channel / 255;
 
-    return value <= 0.03928
-      ? value / 12.92
-      : Math.pow((value + 0.055) / 1.055, 2.4);
+    return value <= 0.03928 ? value / 12.92 : Math.pow((value + 0.055) / 1.055, 2.4);
   });
 
   return 0.2126 * rr + 0.7152 * gg + 0.0722 * bb;
@@ -44,25 +42,17 @@ export function getContrastRatio(color1: string, color2: string) {
   return (Math.max(l1, l2) + 0.05) / (Math.min(l1, l2) + 0.05);
 }
 
-export function blendHexColors(
-  foregroundColor: string,
-  backgroundColor: string,
-  alpha: number
-) {
+export function blendHexColors(foregroundColor: string, backgroundColor: string, alpha: number) {
   const foreground = parseInt(foregroundColor.slice(1), 16);
   const background = parseInt(backgroundColor.slice(1), 16);
   const channels = [16, 8, 0].map((shift) => {
     const foregroundChannel = (foreground >> shift) & 0xff;
     const backgroundChannel = (background >> shift) & 0xff;
 
-    return Math.round(
-      foregroundChannel * alpha + backgroundChannel * (1 - alpha)
-    );
+    return Math.round(foregroundChannel * alpha + backgroundChannel * (1 - alpha));
   });
 
-  return `#${channels
-    .map((channel) => channel.toString(16).padStart(2, "0"))
-    .join("")}`;
+  return `#${channels.map((channel) => channel.toString(16).padStart(2, "0")).join("")}`;
 }
 
 export function getAlphaBlendedContrastRatio(
@@ -70,25 +60,16 @@ export function getAlphaBlendedContrastRatio(
   backgroundColor: string,
   alpha: number
 ) {
-  return getContrastRatio(
-    blendHexColors(foregroundColor, backgroundColor, alpha),
-    backgroundColor
-  );
+  return getContrastRatio(blendHexColors(foregroundColor, backgroundColor, alpha), backgroundColor);
 }
 
-export function isAccessibleColorPair(
-  backgroundColor: string,
-  textColor: string
-) {
+export function isAccessibleColorPair(backgroundColor: string, textColor: string) {
   return (
     isHexColor(backgroundColor) &&
     isHexColor(textColor) &&
     getContrastRatio(backgroundColor, textColor) >= MIN_TEXT_CONTRAST_RATIO &&
-    getAlphaBlendedContrastRatio(
-      textColor,
-      backgroundColor,
-      MUTED_TEXT_ALPHA
-    ) >= MIN_TEXT_CONTRAST_RATIO
+    getAlphaBlendedContrastRatio(textColor, backgroundColor, MUTED_TEXT_ALPHA) >=
+      MIN_TEXT_CONTRAST_RATIO
   );
 }
 

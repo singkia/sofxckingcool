@@ -1,11 +1,11 @@
 /**
- * [INPUT]: 依赖 node:test 与 lib/home-i18n 的 locale 数据和选择函数
- * [OUTPUT]: 对外提供首页国际化行为测试
- * [POS]: lib 的本地化回归测试，约束语言检测、随机 locale 与站点文案完整性
+ * [INPUT]: 依赖 vite-plus/test 与 lib/home-i18n 的 locale 数据和选择函数
+ * [OUTPUT]: 验证首页国际化行为与 Billflare 展示入口
+ * [POS]: lib 的本地化回归测试，约束语言检测、随机 locale 与站点和源码目录文案
  * [PROTOCOL]: 变更时更新此头部，然后检查 CLAUDE.md
  */
 
-import test from "node:test";
+import { test } from "vite-plus/test";
 import assert from "node:assert/strict";
 
 import {
@@ -14,12 +14,23 @@ import {
   SITE_ORDER,
   SITES,
   SUPPORTED_LOCALES,
+  UI_STRINGS,
 } from "./home-i18n.ts";
 
 test("detectLocaleFromLanguages maps Traditional Chinese variants to zh-Hant", () => {
   assert.equal(detectLocaleFromLanguages(["zh-TW", "en-US"]), "zh-Hant");
   assert.equal(detectLocaleFromLanguages(["zh-HK"]), "zh-Hant");
   assert.equal(detectLocaleFromLanguages(["zh-Hant-MO"]), "zh-Hant");
+});
+
+test("project directory labels exist in every supported locale", () => {
+  for (const locale of SUPPORTED_LOCALES) {
+    for (const [key, value] of Object.entries(UI_STRINGS[locale])) {
+      if (typeof value === "string") {
+        assert.ok(value.trim(), `${locale} ${key} is empty`);
+      }
+    }
+  }
 });
 
 test("detectLocaleFromLanguages maps simplified Chinese and falls back to English", () => {
@@ -37,9 +48,7 @@ test("detectLocaleFromLanguages maps supported non-Chinese locales", () => {
 
 test("pickRandomLocale never returns the current locale when alternatives exist", () => {
   const picks = new Set(
-    Array.from({ length: 24 }, (_, index) =>
-      pickRandomLocale("en", () => index / 24)
-    )
+    Array.from({ length: 24 }, (_, index) => pickRandomLocale("en", () => index / 24))
   );
 
   assert(!picks.has("en"));
@@ -54,10 +63,13 @@ test("every site exposes copy for every supported locale", () => {
       const copy = site.copies[locale];
       assert.ok(copy, `${site.id} is missing ${locale}`);
       assert.ok(copy.title.length > 0, `${site.id} ${locale} title is empty`);
-      assert.ok(
-        copy.description.length > 0,
-        `${site.id} ${locale} description is empty`
-      );
+      assert.ok(copy.description.length > 0, `${site.id} ${locale} description is empty`);
     }
   }
+});
+
+test("Billflare 出现在网站展示区且不重复", () => {
+  const sites = SITES.filter(({ id }) => id === "billflare");
+  assert.equal(sites.length, 1);
+  assert.equal(sites[0].url, "https://billflare.dev/");
 });

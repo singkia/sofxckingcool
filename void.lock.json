@@ -1,0 +1,72 @@
+{
+  "version": 1,
+  "source": {
+    "name": "sofxckingcool",
+    "workers_dev": true,
+    "preview_urls": true,
+    "keep_vars": true,
+    "routes": [
+      {
+        "pattern": "sofxcking.cool/*",
+        "zone_name": "sofxcking.cool"
+      },
+      {
+        "pattern": "www.sofxcking.cool/*",
+        "zone_name": "sofxcking.cool"
+      }
+    ],
+    "account_id": "02c398482d28151eb2aafa68818815ce",
+    "compatibility_date": "2026-03-27",
+    "compatibility_flags": [
+      "nodejs_compat",
+      "global_fetch_strictly_public"
+    ],
+    "observability": {
+      "enabled": true
+    },
+    "assets": {
+      "binding": "ASSETS"
+    },
+    "services": [
+      {
+        "binding": "WORKER_SELF_REFERENCE",
+        "service": "sofxckingcool"
+      }
+    ]
+  },
+  "resolved": {
+    "name": "sofxckingcool",
+    "workers_dev": true,
+    "preview_urls": true,
+    "keep_vars": true,
+    "routes": [
+      {
+        "pattern": "sofxcking.cool/*",
+        "zone_name": "sofxcking.cool"
+      },
+      {
+        "pattern": "www.sofxcking.cool/*",
+        "zone_name": "sofxcking.cool"
+      }
+    ],
+    "account_id": "02c398482d28151eb2aafa68818815ce",
+    "compatibility_date": "2026-03-27",
+    "compatibility_flags": [
+      "nodejs_compat",
+      "global_fetch_strictly_public"
+    ],
+    "observability": {
+      "enabled": true
+    },
+    "assets": {
+      "binding": "ASSETS"
+    },
+    "services": [
+      {
+        "binding": "WORKER_SELF_REFERENCE",
+        "service": "sofxckingcool"
+      }
+    ]
+  },
+  "text": "{\n  \"name\": \"sofxckingcool\",\n  \"workers_dev\": true,\n  \"preview_urls\": true,\n  \"keep_vars\": true,\n  \"routes\": [\n    {\n      \"pattern\": \"sofxcking.cool/*\",\n      \"zone_name\": \"sofxcking.cool\"\n    },\n    {\n      \"pattern\": \"www.sofxcking.cool/*\",\n      \"zone_name\": \"sofxcking.cool\"\n    }\n  ],\n  \"account_id\": \"02c398482d28151eb2aafa68818815ce\",\n  \"compatibility_date\": \"2026-03-27\",\n  \"compatibility_flags\": [\n    \"nodejs_compat\",\n    \"global_fetch_strictly_public\"\n  ],\n  \"observability\": {\n    \"enabled\": true\n  },\n  \"assets\": {\n    \"binding\": \"ASSETS\"\n  },\n  \"services\": [\n    {\n      \"binding\": \"WORKER_SELF_REFERENCE\",\n      \"service\": \"sofxckingcool\"\n    }\n  ]\n}\n"
+}

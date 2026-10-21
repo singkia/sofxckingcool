@@ -1,7 +1,7 @@
 /**
- * [INPUT]: 依赖首页站点清单与浏览器语言代码
+ * [INPUT]: 依赖人工维护的网站地址、项目目录标签与浏览器语言代码
  * [OUTPUT]: 对外提供 Locale 类型、SITES 数据、UI_STRINGS 文案与 locale 工具函数
- * [POS]: lib 的首页国际化源，供 app/page.tsx 与本地化测试消费
+ * [POS]: lib 的首页国际化源，供 pages/index.tsx 与本地化测试消费
  * [PROTOCOL]: 变更时更新此头部，然后检查 CLAUDE.md
  */
 
@@ -21,20 +21,14 @@ export interface LocalizedSite {
 export const DEFAULT_LOCALE: Locale = "en";
 export const HOME_LOCALE_STORAGE_KEY = "sofxckingcool.home.locale";
 
-export const SUPPORTED_LOCALES: Locale[] = [
-  "zh-Hant",
-  "zh-Hans",
-  "en",
-  "ja",
-  "fr",
-  "ko",
-];
+export const SUPPORTED_LOCALES: Locale[] = ["zh-Hant", "zh-Hans", "en", "ja", "fr", "ko"];
 
 export const SITE_ORDER = [
   "jikan",
   "lomopic",
   "wordcounter",
   "chinese-converter",
+  "billflare",
 ] as const;
 
 const SITE_RECORD: Record<(typeof SITE_ORDER)[number], LocalizedSite> = {
@@ -57,8 +51,7 @@ const SITE_RECORD: Record<(typeof SITE_ORDER)[number], LocalizedSite> = {
       },
       ja: {
         title: "年間進捗壁紙ジェネレーター",
-        description:
-          "年間の進捗と目標をもとに、ピクセル風の動的壁紙を生成します。",
+        description: "年間の進捗と目標をもとに、ピクセル風の動的壁紙を生成します。",
       },
       fr: {
         title: "Générateur de fonds d'écran de progression annuelle",
@@ -67,8 +60,7 @@ const SITE_RECORD: Record<(typeof SITE_ORDER)[number], LocalizedSite> = {
       },
       ko: {
         title: "연간 진행도 배경화면 생성기",
-        description:
-          "연간 진행도와 목표를 바탕으로 픽셀 스타일의 동적 배경화면을 생성합니다.",
+        description: "연간 진행도와 목표를 바탕으로 픽셀 스타일의 동적 배경화면을 생성합니다.",
       },
     },
   },
@@ -86,23 +78,19 @@ const SITE_RECORD: Record<(typeof SITE_ORDER)[number], LocalizedSite> = {
       },
       en: {
         title: "Instant Photo Frame Generator",
-        description:
-          "Turn your photos into vintage instant-camera style pictures.",
+        description: "Turn your photos into vintage instant-camera style pictures.",
       },
       ja: {
         title: "インスタント写真フレーム生成器",
-        description:
-          "写真をレトロなインスタント写真風に変換するオンラインツールです。",
+        description: "写真をレトロなインスタント写真風に変換するオンラインツールです。",
       },
       fr: {
         title: "Générateur de cadres photo instantanés",
-        description:
-          "Transformez vos photos en images au style d'appareil instantané vintage.",
+        description: "Transformez vos photos en images au style d'appareil instantané vintage.",
       },
       ko: {
         title: "즉석 사진 프레임 생성기",
-        description:
-          "사진을 빈티지 즉석카메라 스타일 이미지로 바꿔주는 온라인 도구입니다.",
+        description: "사진을 빈티지 즉석카메라 스타일 이미지로 바꿔주는 온라인 도구입니다.",
       },
     },
   },
@@ -134,8 +122,7 @@ const SITE_RECORD: Record<(typeof SITE_ORDER)[number], LocalizedSite> = {
       },
       ko: {
         title: "단어 및 문자 수 카운터",
-        description:
-          "다국어 단어 수, 문자 수, 텍스트 분석을 지원하는 도구입니다.",
+        description: "다국어 단어 수, 문자 수, 텍스트 분석을 지원하는 도구입니다.",
       },
     },
   },
@@ -158,8 +145,7 @@ const SITE_RECORD: Record<(typeof SITE_ORDER)[number], LocalizedSite> = {
       },
       ja: {
         title: "中国語簡体字・繁体字変換ツール",
-        description:
-          "OpenCC を利用した無料の中国語簡体字・繁体字変換ツールです。",
+        description: "OpenCC を利用した無料の中国語簡体字・繁体字変換ツールです。",
       },
       fr: {
         title: "Convertisseur chinois simplifié-traditionnel",
@@ -169,6 +155,39 @@ const SITE_RECORD: Record<(typeof SITE_ORDER)[number], LocalizedSite> = {
       ko: {
         title: "중국어 간체-번체 변환기",
         description: "OpenCC 기반의 무료 중국어 간체-번체 변환 도구입니다.",
+      },
+    },
+  },
+  billflare: {
+    id: "billflare",
+    url: "https://billflare.dev/",
+    copies: {
+      "zh-Hant": {
+        title: "Billflare · Cloudflare 帳單案例",
+        description: "整理有公開來源的 Cloudflare 意外帳單案例與計費指南。",
+      },
+      "zh-Hans": {
+        title: "Billflare · Cloudflare 账单案例",
+        description: "整理有公开来源的 Cloudflare 意外账单案例与计费指南。",
+      },
+      en: {
+        title: "Billflare · Cloudflare Billing Cases",
+        description:
+          "Explore source-linked reports of unexpected Cloudflare bills and billing guides.",
+      },
+      ja: {
+        title: "Billflare · Cloudflare の請求事例",
+        description: "公開情報に基づく Cloudflare の予期せぬ請求事例と料金ガイドを紹介します。",
+      },
+      fr: {
+        title: "Billflare · Facturation Cloudflare",
+        description:
+          "Consultez des cas de factures Cloudflare inattendues avec leurs sources et des guides de facturation.",
+      },
+      ko: {
+        title: "Billflare · Cloudflare 청구 사례",
+        description:
+          "공개 출처가 있는 Cloudflare 예상 밖 요금 청구 사례와 과금 가이드를 모았습니다.",
       },
     },
   },
@@ -184,6 +203,12 @@ export const UI_STRINGS: Record<
     showcaseCount: (count: number) => string;
     externalLinkLabel: string;
     shuffleLabel: string;
+    publicProjectsTitle: string;
+    publicProjectsDescription: string;
+    sourceLinkLabel: string;
+    projectLinkLabel: string;
+    licenseUnknownLabel: string;
+    archivedLabel: string;
   }
 > = {
   "zh-Hant": {
@@ -192,6 +217,13 @@ export const UI_STRINGS: Record<
     showcaseCount: (count) => `目前展示 ${count} 個網站`,
     externalLinkLabel: "打開網站",
     shuffleLabel: "隨機切換主題",
+    publicProjectsTitle: "公開原始碼專案",
+    publicProjectsDescription:
+      "自主開發的公開專案，不含 Fork。專案連結沿用倉庫設定，授權依各倉庫標示。",
+    sourceLinkLabel: "原始碼",
+    projectLinkLabel: "專案連結",
+    licenseUnknownLabel: "GitHub 未標示授權",
+    archivedLabel: "已封存",
   },
   "zh-Hans": {
     emptyTitle: "没有可显示的网站",
@@ -199,6 +231,13 @@ export const UI_STRINGS: Record<
     showcaseCount: (count) => `当前展示 ${count} 个网站`,
     externalLinkLabel: "打开网站",
     shuffleLabel: "随机切换主题",
+    publicProjectsTitle: "公开源码项目",
+    publicProjectsDescription:
+      "自主开发的公开项目，不含 Fork。项目链接沿用仓库设置，许可依各仓库标注。",
+    sourceLinkLabel: "源码",
+    projectLinkLabel: "项目链接",
+    licenseUnknownLabel: "GitHub 未标注许可证",
+    archivedLabel: "已归档",
   },
   en: {
     emptyTitle: "No websites found",
@@ -206,14 +245,27 @@ export const UI_STRINGS: Record<
     showcaseCount: (count) => `${count} websites in the current showcase`,
     externalLinkLabel: "Open website",
     shuffleLabel: "Shuffle theme",
+    publicProjectsTitle: "Public source projects",
+    publicProjectsDescription:
+      "Our public projects, excluding forks. Project links follow repository settings; licenses are shown as reported by GitHub.",
+    sourceLinkLabel: "Source",
+    projectLinkLabel: "Project link",
+    licenseUnknownLabel: "No license identified by GitHub",
+    archivedLabel: "Archived",
   },
   ja: {
     emptyTitle: "表示できるサイトがありません",
     emptyDescription: "現在利用できるリンク済みサイトはありません。",
-    showcaseCount: (count) =>
-      `現在のショーケースには ${count} 件のサイトがあります`,
+    showcaseCount: (count) => `現在のショーケースには ${count} 件のサイトがあります`,
     externalLinkLabel: "サイトを開く",
     shuffleLabel: "テーマをランダムに切り替え",
+    publicProjectsTitle: "ソース公開プロジェクト",
+    publicProjectsDescription:
+      "自主開発の公開プロジェクトを掲載し、Fork は除外します。リンクとライセンスは GitHub の登録情報に従います。",
+    sourceLinkLabel: "ソースコード",
+    projectLinkLabel: "プロジェクトリンク",
+    licenseUnknownLabel: "GitHub にライセンスの記載なし",
+    archivedLabel: "アーカイブ済み",
   },
   fr: {
     emptyTitle: "Aucun site trouvé",
@@ -221,6 +273,13 @@ export const UI_STRINGS: Record<
     showcaseCount: (count) => `${count} sites dans la vitrine actuelle`,
     externalLinkLabel: "Ouvrir le site",
     shuffleLabel: "Changer le thème aléatoirement",
+    publicProjectsTitle: "Projets au code public",
+    publicProjectsDescription:
+      "Nos projets publics, sans les forks. Les liens et licences reprennent les informations des dépôts GitHub.",
+    sourceLinkLabel: "Code source",
+    projectLinkLabel: "Lien du projet",
+    licenseUnknownLabel: "Licence non identifiée par GitHub",
+    archivedLabel: "Archivé",
   },
   ko: {
     emptyTitle: "표시할 웹사이트가 없습니다",
@@ -228,6 +287,13 @@ export const UI_STRINGS: Record<
     showcaseCount: (count) => `현재 쇼케이스에 웹사이트 ${count}개가 있습니다`,
     externalLinkLabel: "웹사이트 열기",
     shuffleLabel: "테마 무작위 변경",
+    publicProjectsTitle: "소스 공개 프로젝트",
+    publicProjectsDescription:
+      "개인과 조직이 직접 만든 공개 프로젝트만 표시하며 Fork는 제외합니다. 프로젝트 링크와 라이선스는 GitHub 저장소 정보를 따릅니다.",
+    sourceLinkLabel: "소스 코드",
+    projectLinkLabel: "프로젝트 링크",
+    licenseUnknownLabel: "GitHub에 라이선스 정보 없음",
+    archivedLabel: "보관됨",
   },
 };
 
@@ -235,9 +301,7 @@ export function isLocale(value: string | null | undefined): value is Locale {
   return value !== null && SUPPORTED_LOCALES.includes(value as Locale);
 }
 
-export function detectLocaleFromLanguages(
-  languages: readonly string[] | undefined
-): Locale {
+export function detectLocaleFromLanguages(languages: readonly string[] | undefined): Locale {
   const candidates = languages?.length ? languages : [DEFAULT_LOCALE];
 
   for (const entry of candidates) {
@@ -276,13 +340,8 @@ export function detectLocaleFromLanguages(
   return DEFAULT_LOCALE;
 }
 
-export function pickRandomLocale(
-  currentLocale: Locale,
-  random = Math.random
-): Locale {
-  const candidates = SUPPORTED_LOCALES.filter(
-    (locale) => locale !== currentLocale
-  );
+export function pickRandomLocale(currentLocale: Locale, random = Math.random): Locale {
+  const candidates = SUPPORTED_LOCALES.filter((locale) => locale !== currentLocale);
 
   if (candidates.length === 0) {
     return currentLocale;

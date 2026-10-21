@@ -8,6 +8,8 @@
 
 # testing
 /coverage
+/test-results/
+/playwright-report/
 .playwright-mcp
 
 # next.js
@@ -39,3 +41,15 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Vite+ / Void
+/dist/
+/.void/
+/.void-wrangler.jsonc
+/.vite/
+/output/
+/.env
+/.env.*
+.vitest/
+
+/.playwright-cli/

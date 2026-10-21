@@ -1,11 +1,11 @@
 /**
- * [INPUT]: 依赖 node:test、lib/home-layout 与 utils/colors 的首页视觉规则
- * [OUTPUT]: 对外提供首页响应式与配色可访问性测试
+ * [INPUT]: 依赖 vite-plus/test、lib/home-layout 与 utils/colors 的首页视觉规则
+ * [OUTPUT]: 验证 320px 起的首页尺寸与配色可访问性
  * [POS]: lib 的视觉回归测试，约束 header 不溢出与弱化文字对比度
  * [PROTOCOL]: 变更时更新此头部，然后检查 CLAUDE.md
  */
 
-import test from "node:test";
+import { test } from "vite-plus/test";
 import assert from "node:assert/strict";
 
 import {
@@ -40,15 +40,15 @@ function withMockedRandom<T>(values: number[], callback: () => T) {
 }
 
 test("home logo fits inside supported viewport widths", () => {
-  for (const viewportWidth of [390, 640, 768, 1280, 1440, 1920]) {
+  for (let viewportWidth = 320; viewportWidth <= 2560; viewportWidth++) {
     const logoSize = getHomeLogoSize(viewportWidth);
-    const usedWidth =
-      getHomeLogoWidth(logoSize) + getHomeHeaderReservedWidth(viewportWidth);
+    const usedWidth = getHomeLogoWidth(logoSize) + getHomeHeaderReservedWidth(viewportWidth);
 
     assert.ok(
       usedWidth <= viewportWidth,
       `logo uses ${usedWidth}px in ${viewportWidth}px viewport`
     );
+    assert.ok(logoSize > 0);
   }
 });
 
@@ -78,10 +78,7 @@ test("random colors keep muted text accessible", () => {
     textColor: "#fefefe",
   });
   assert.ok(
-    getAlphaBlendedContrastRatio(
-      colors.textColor,
-      colors.backgroundColor,
-      MUTED_TEXT_ALPHA
-    ) >= MIN_TEXT_CONTRAST_RATIO
+    getAlphaBlendedContrastRatio(colors.textColor, colors.backgroundColor, MUTED_TEXT_ALPHA) >=
+      MIN_TEXT_CONTRAST_RATIO
   );
 });

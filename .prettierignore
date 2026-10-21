@@ -1,8 +1,0 @@
-.codex
-.next
-.open-next
-.wrangler
-node_modules
-package-lock.json
-pnpm-lock.yaml
-wrangler.jsonc

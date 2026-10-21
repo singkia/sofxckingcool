@@ -1,0 +1,34 @@
+diff --git a/dist/protocol-bAUUkx70.mjs b/dist/protocol-bAUUkx70.mjs
+index b1d96df6d25983673d25cd9fd41232c200e2b0d7..3b1a37c5544c21a327aa0a6d3387578685050caf 100644
+--- a/dist/protocol-bAUUkx70.mjs
++++ b/dist/protocol-bAUUkx70.mjs
+@@ -111,7 +111,7 @@ async function renderPageHtml(c, pageObj, componentId, renderMode, renderFn, get
+ 	};
+ }
+ function pageJsonResponse(c, pageObj) {
+-	return Response.json(pageObj, { headers: pageResponseHeaders(c, {
++	return c.json(pageObj, { headers: pageResponseHeaders(c, {
+ 		"X-VoidPages": "true",
+ 		Vary: "X-VoidPages",
+ 		...POWERED_BY
+@@ -161,7 +161,7 @@ async function writeRenderResult(writer, encoder, result) {
+ 	}
+ }
+ function renderedResponse(c, result, contentType, assetTags) {
+-	return new Response(result, { headers: adjustDevCssCsp(pageResponseHeaders(c, {
++	return c.newResponse(result, { headers: adjustDevCssCsp(pageResponseHeaders(c, {
+ 		"content-type": contentType,
+ 		...POWERED_BY
+ 	}), assetTags?.devCssNonce) });
+diff --git a/dist/scan-D2-FcLHs.mjs b/dist/scan-D2-FcLHs.mjs
+index 58aa4279800ab2279695c60715532e0bf570022a..97555989375eda3dc3891206e005d742fdabfd62 100644
+--- a/dist/scan-D2-FcLHs.mjs
++++ b/dist/scan-D2-FcLHs.mjs
+@@ -263,6 +263,7 @@ async function scanPages(root, options) {
+ 	};
+ 	const pattern = `**/*.{${COMPONENT_EXTENSIONS.join(",")}}`;
+ 	const files = await glob(pattern, {
++		ignore: ["**/CLAUDE.md", "**/AGENTS.md", "**/README.md"],
+ 		cwd: pagesDir,
+ 		absolute: false
+ 	});

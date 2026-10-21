@@ -1,0 +1,85 @@
+{
+  "syncedAt": "2026-10-21T11:41:02.967Z",
+  "projects": [
+    {
+      "fullName": "daftAI2026/awesome-jev",
+      "description": "Curated TypeSafe Jev / System One GitHub projects, open-source alternatives, and Jev news",
+      "sourceUrl": "https://github.com/daftAI2026/awesome-jev",
+      "websiteUrl": "https://awesomejev.cc/",
+      "license": null,
+      "archived": false
+    },
+    {
+      "fullName": "daftAI2026/billflare-reports",
+      "description": "Public source-based Cloudflare billing reports for Billflare; submission is not verification.",
+      "sourceUrl": "https://github.com/daftAI2026/billflare-reports",
+      "websiteUrl": "https://billflare.dev/",
+      "license": null,
+      "archived": false
+    },
+    {
+      "fullName": "daftAI2026/Cavalry-i18n",
+      "description": "Cavalry 2.8.0 汉化工具与中文语言包，支持 Windows 和 macOS，可切换简体中文、繁体中文、日文和英文。",
+      "sourceUrl": "https://github.com/daftAI2026/Cavalry-i18n",
+      "websiteUrl": null,
+      "license": "MIT",
+      "archived": false
+    },
+    {
+      "fullName": "daftAI2026/daftai-amp-plugins",
+      "description": "daftAI Amp plugins, including a usage monitor for credits and balance.",
+      "sourceUrl": "https://github.com/daftAI2026/daftai-amp-plugins",
+      "websiteUrl": null,
+      "license": "MIT",
+      "archived": false
+    },
+    {
+      "fullName": "daftAI2026/daftAI-skills",
+      "description": null,
+      "sourceUrl": "https://github.com/daftAI2026/daftAI-skills",
+      "websiteUrl": null,
+      "license": null,
+      "archived": false
+    },
+    {
+      "fullName": "daftAI2026/DeskMagnet",
+      "description": "macOS Finder desktop icon magnet that gathers desktop icons behind a window and restores them safely",
+      "sourceUrl": "https://github.com/daftAI2026/DeskMagnet",
+      "websiteUrl": null,
+      "license": "MIT",
+      "archived": false
+    },
+    {
+      "fullName": "daftAI2026/incodex",
+      "description": "Incognito toggle for Codex desktop.",
+      "sourceUrl": "https://github.com/daftAI2026/incodex",
+      "websiteUrl": "https://daftai2026.github.io/incodex/",
+      "license": "MIT",
+      "archived": false
+    },
+    {
+      "fullName": "daftAI2026/Jikan.life",
+      "description": "Minimalist, data-driven lock screen wallpapers that visualize time & progress — privacy-first, no accounts, URL-configured.",
+      "sourceUrl": "https://github.com/daftAI2026/Jikan.life",
+      "websiteUrl": "https://jikan.life/",
+      "license": "Apache-2.0",
+      "archived": false
+    },
+    {
+      "fullName": "daftAI2026/PDSH",
+      "description": "DeepSeek Harness plugin for sidebar masking, display aliases, and local screenshot editing. No session isolation.",
+      "sourceUrl": "https://github.com/daftAI2026/PDSH",
+      "websiteUrl": "https://github.com/daftAI2026/PDSH#readme",
+      "license": "MIT",
+      "archived": false
+    },
+    {
+      "fullName": "singkia/sofxckingcool",
+      "description": null,
+      "sourceUrl": "https://github.com/singkia/sofxckingcool",
+      "websiteUrl": "https://sofxcking.cool/",
+      "license": null,
+      "archived": false
+    }
+  ]
+}

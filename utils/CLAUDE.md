@@ -1,6 +1,6 @@
 # utils/
 
-> L2 | 父级: /Users/luo/Desktop/ClaudeCode/web/sofxckingcool/CLAUDE.md
+> L2 | 父级: ../CLAUDE.md
 
 成员清单
 colors.ts: WCAG 对比度、alpha 混合与随机主题色生成工具，保证常规和弱化文字可读。

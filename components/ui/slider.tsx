@@ -1,4 +1,9 @@
-"use client";
+/**
+ * [INPUT]: 依赖 React、Radix Slider 与 lib/utils 的 cn
+ * [OUTPUT]: 导出 Slider 组件
+ * [POS]: components/ui 的滑块外壳，由调用方持有数值状态
+ * [PROTOCOL]: 变更时更新此头部，然后检查 CLAUDE.md
+ */
 
 import * as React from "react";
 import * as SliderPrimitive from "@radix-ui/react-slider";
@@ -11,10 +16,7 @@ const Slider = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <SliderPrimitive.Root
     ref={ref}
-    className={cn(
-      "relative flex w-full touch-none items-center select-none",
-      className
-    )}
+    className={cn("relative flex w-full touch-none items-center select-none", className)}
     {...props}
   >
     <SliderPrimitive.Track className="relative h-1.5 w-full grow overflow-hidden rounded-full bg-black/10">

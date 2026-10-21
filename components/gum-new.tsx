@@ -1,3 +1,10 @@
+/**
+ * [INPUT]: 依赖 React 的 SVG 渲染能力
+ * [OUTPUT]: 默认导出 Logo 组件
+ * [POS]: components 的遗留 Gum 标识，当前首页不引用
+ * [PROTOCOL]: 变更时更新此头部，然后检查 CLAUDE.md
+ */
+
 export default function Logo() {
   return (
     <h1 className="z-11 flex items-center font-bold">
