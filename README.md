@@ -103,8 +103,15 @@ Cloudflare 构建环境固定以下非密钥变量：
 | `CLOUDFLARE_WORKERS_SUBDOMAIN` | `daftai`  |
 
 构建令牌沿用原连接，不写入仓库。
-本次只切换 `main` 生产发布，不扩展分支预览方案。
-非 `main` 分支的原预览配置未变更，未纳入本次验收。
+非 `main` 分支只运行安装、检查、测试与构建：
+
+```bash
+pnpm install --frozen-lockfile && pnpm check && pnpm test && pnpm build
+```
+
+非生产部署命令为 `true`，不上传预览，不覆盖正式站。
+分支构建沿用相同 Node.js、pnpm 与依赖安装变量。
+只有 `main` 使用 Void 发布生产版本。
 
 2026-10-21 的 Void 发布来自本机，GitHub 当时仍为 `128a262`。
 2026-10-22 将生产构建连接切换到上述命令。

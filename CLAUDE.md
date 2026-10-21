@@ -85,6 +85,7 @@ CLI 变更先校验 zone 范围与 `--validate-only`。
 main 推送先执行锁文件安装、检查与测试。
 验收通过后，Cloudflare 执行 pnpm run deploy。
 Void 内部执行 Vite+ 构建，再发布生产版本。
+非 main 分支只检查、测试与构建，不发布。
 构建环境与命令见 README 的 Git 自动部署章节。
 复用现有构建连接，不新增第二条发布通道。
 验收完成后关闭本项目的本地服务与浏览器会话。
