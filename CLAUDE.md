@@ -23,7 +23,7 @@ components.json - UI 生成器的客户端组件与样式路径
 vite.config.ts - Void React、Tailwind、测试、检查与格式配置
 void.config.ts - 站点元数据、重定向与部署声明
 env.ts - 仅服务端可读的 Resend 环境变量
-.node-version - Void 所需 Node.js 24.21.0
+.node-version - Void 所需 Node.js 24.22.1
 .gitignore - 忽略依赖、构建产物与本地凭据
 tsconfig.json - 严格类型、Void 生成类型与 @/* 路径
 tailwind.config.ts - Typography 与保留的动画扩展
@@ -96,6 +96,7 @@ Void 内部执行 Vite+ 构建，再发布生产版本。
 ## 变更日志
 
 2026-10-22: 将现有 Git main 发布入口统一为 Void。
+2026-10-22: Node.js 升到 24.22.1 LTS。仓库版本钉与 README 的 NODE_VERSION 同步；Cloudflare Builds 里的同名变量需要在控制台改成这个版本。
 
 2026-10-21: 升级稳定依赖，新增 10 个公开自建项目，迁移 Vite+ 与 Void。
 2026-06-01: 修复首页布局、随机按钮与弱化文字对比度。

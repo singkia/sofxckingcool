@@ -4,7 +4,7 @@ FXCK Studio 多语言项目展示站。使用 Vite+、Void、React 与 Cloudflar
 
 ## 本地运行
 
-使用 `.node-version` 指定的 Node.js 24.21.0。
+使用 `.node-version` 指定的 Node.js 24.22.1。
 
 ```bash
 pnpm install --frozen-lockfile
@@ -97,7 +97,7 @@ Cloudflare 构建环境固定以下非密钥变量：
 
 | 变量                           | 值        |
 | ------------------------------ | --------- |
-| `NODE_VERSION`                 | `24.21.0` |
+| `NODE_VERSION`                 | `24.22.1` |
 | `PNPM_VERSION`                 | `10.8.0`  |
 | `SKIP_DEPENDENCY_INSTALL`      | `1`       |
 | `CLOUDFLARE_WORKERS_SUBDOMAIN` | `daftai`  |
